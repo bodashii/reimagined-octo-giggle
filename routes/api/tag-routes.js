@@ -15,6 +15,11 @@ router.get('/', (req, res) => {
       as: "products"
     }
   })
+    .then((dbTagData) => res.json(dbTagData))
+    .catch((err) => {
+      console.log(err);
+      res.json(500).json(err);
+    })
 });
 
 router.get('/:id', (req, res) => {
